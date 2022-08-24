@@ -1,5 +1,11 @@
 body{
+  display: flex;
+  flex-direction: column;
   margin: 0;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  background-color: greenyellow;
 }
 
 #container{
@@ -20,9 +26,25 @@ body{
   display: flex;
   border: 1px solid black;
   flex-direction: column;
-  flex-basis: 100%;;
+  flex-basis: 100%;
+  background-color: aliceblue;
 }
 
 .hovering{
-  background-color: red;
+  background-color: black;
+}
+
+button{
+  display: flex;
+  max-width: 20%;
+  margin: 5px;
+  background-color: yellow;
+  border: none;
+  padding: 5px;
+  font-weight: 700px;
+  border-radius: 4px;
+}
+
+button:hover{
+  background-color: rgb(108, 108, 219);
 }
