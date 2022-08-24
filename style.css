@@ -22,3 +22,7 @@ body{
   flex-direction: column;
   flex-basis: 100%;;
 }
+
+.hovering{
+  background-color: red;
+}

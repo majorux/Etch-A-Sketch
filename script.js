@@ -17,3 +17,9 @@ rows.forEach(element => {
     element.append(columns_grid);
   };
 });
+const columns = document.querySelectorAll('.column')
+columns.forEach(element => {
+  element.addEventListener('mouseenter', (event) => {
+    event.target.classList.add('hovering')
+  })
+})
