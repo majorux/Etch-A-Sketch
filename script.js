@@ -1,25 +1,48 @@
 const container = document.getElementById('container');
 
-function forRow(){
-  for(i = 0; i <16; i++){ 
-    const row_grid = document.createElement('div');
-    row_grid.classList.add('row');
-    container.append(row_grid);
+let int = 0;
+function getInput(){
+  int = Number(prompt('how many grids per side? must be under 100!'));
+  if(int > 100){
+    getInput();
+  }
+  const removeChilds = (parent) => {
+    while (parent.lastChild){
+      parent.removeChild(parent.lastChild)
+    }
   };
-}
-forRow();
+  removeChilds(container);
+  changeGrid(); 
+};
 
-const rows = document.querySelectorAll('.row');
-rows.forEach(element => {
-  for(i = 0; i <16; i++){ 
-    const columns_grid = document.createElement('div');
-    columns_grid.classList.add('column');
-    element.append(columns_grid);
-  };
-});
-const columns = document.querySelectorAll('.column')
-columns.forEach(element => {
-  element.addEventListener('mouseenter', (event) => {
-    event.target.classList.add('hovering')
+
+
+function changeGrid(){ 
+  function forRow(){
+    for(i = 0; i <(int | 32); i++){ 
+      const row_grid = document.createElement('div');
+      row_grid.classList.add('row');
+      row_grid.classList.add('grid');
+      container.append(row_grid);
+    };
+  }
+  forRow();
+
+  const rows = document.querySelectorAll('.row');
+  rows.forEach(element => {
+    for(i = 0; i <(int | 32); i++){ 
+      const columns_grid = document.createElement('div');
+      columns_grid.classList.add('column');
+      columns_grid.classList.add('grid');
+      element.append(columns_grid);
+    };
+  });
+  const columns = document.querySelectorAll('.column')
+  columns.forEach(element => {
+    element.addEventListener('mouseenter', (event) => {
+      event.target.classList.add('hovering')
+    })
   })
-})
+};
+changeGrid();
+
